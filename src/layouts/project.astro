@@ -1,0 +1,96 @@
+---
+import MainHead from '../components/MainHead.astro';
+import Footer from '../components/Footer/index.jsx';
+import Nav from '../components/Nav/index.jsx';
+
+const { content } = Astro.props;
+---
+
+<html lang={content.lang || 'en'}>
+	<head>
+		<MainHead title={content.title} description={content.description} />
+		<style lang="scss">
+			.hero {
+				padding: 2rem;
+				display: flex;
+				background-repeat: no-repeat;
+				background-size: cover;
+				flex-direction: column;
+			}
+
+			.tag {
+				margin-left: 0.5em;
+				margin-right: 0.5em;
+				text-transform: uppercase;
+
+				&:nth-of-type(1n) {
+					color: var(--c-green);
+				}
+				&:nth-of-type(2n) {
+					color: var(--c-orange);
+				}
+				&:nth-of-type(3n) {
+					color: var(--c-blue);
+				}
+				&:nth-of-type(4n) {
+					color: var(--c-pink);
+				}
+			}
+
+			.title {
+				font-size: var(--f-u10);
+				font-weight: 900;
+				letter-spacing: 0.0625em;
+				text-transform: uppercase;
+			}
+
+			.leadIn {
+				color: var(--t-bg);
+				background-color: var(--t-fg);
+			}
+
+			.tagline {
+				font-weight: 300;
+				font-size: var(--f-u1);
+				line-height: 1.5;
+			}
+
+			.content {
+				font-size: var(--f-u1);
+				line-height: 2.2;
+			}
+			
+			.back-btn-anchor{
+				text-decoration: none;
+			}
+
+			.back-btn{
+				text-decoration: none;
+				color: var(--t-fg);
+				font-size: 18px;
+				font-weight: 600;
+				&:hover {
+					color: var(--t-active);
+				}
+			}
+
+		</style>
+	</head>
+	<body>
+		<Nav />
+		<header class="hero wrapper">
+			<h1 class="title">{content.title}</h1>
+			<h3 class="tagline">{content.description}</h3>
+		</header>
+
+		<div class="wrapper">
+			<div class="content"><slot /></div>
+		</div>
+		<footer class="wrapper">
+			<a class='back-btn-anchor' href='/#projects'>
+				<p class='back-btn'>← Back to Projects</p>
+			</a>
+		</footer>
+		<Footer />
+	</body>
+</html>

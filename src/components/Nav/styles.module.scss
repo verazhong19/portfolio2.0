@@ -1,0 +1,36 @@
+.nav {
+	display: flex;
+	align-items: center;
+	padding-top: 1rem;
+	padding-right: 2rem;
+	padding-bottom: 1rem;
+	padding-left: 2rem;
+	font-size: 18px;
+	font-weight: 600;
+	overflow: hidden;
+}
+
+.logolink {
+	display: block;
+	color: var(--t-fg);
+	text-decoration: none;
+}
+
+.link {
+	color: var(--t-fg);
+	display: block;
+	margin-left: auto;
+	text-decoration: none;
+	padding-top: 0.75em;
+	padding-bottom: 0.75em;
+
+	&:focus,
+	&:hover {
+		color: var(--t-active);
+	}
+
+	+ .link {
+		margin-left: 0.75rem;
+	}
+}
+

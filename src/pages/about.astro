@@ -1,0 +1,149 @@
+---
+import MainHead from '../components/MainHead.astro';
+import Footer from '../components/Footer/index.jsx';
+import Nav from '../components/Nav/index.jsx';
+import PortfolioPreview from '../components/PortfolioPreview/index.jsx';
+
+// Data Fetching: List all Markdown posts in the repo.
+interface MarkdownFrontmatter {
+	publishDate: number;
+}
+
+const projects = Astro.fetchContent<MarkdownFrontmatter>('./project/**/*.md')
+	.filter(({ publishDate }) => !!publishDate)
+	.sort((a, b) => new Date(b.publishDate).valueOf() - new Date(a.publishDate).valueOf());
+---
+
+<html lang="en">
+
+<head>
+	<MainHead title="About | Vera Zhong" description="About Vera Zhong" />
+	<style lang="scss">
+		.about-container {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+		}
+		.about-desc{
+			width: 49vw;
+		}
+		.img-container{
+			padding-left: 5%;
+		}
+		.about-img{
+			border-radius: 50px;
+			height: auto;
+			width: 49vw
+		}
+
+		.button-about {	
+			background-color: #689689;
+			border: none;
+			font-family: 'Mulish';
+			color: #fff;
+			font-size: 1.2vw;
+			font-weight: 600;
+		}
+		.tech-stack{
+			display: flex;
+			flex-direction: row;
+			align-items: flex-start;
+			justify-content: space-between;
+		}
+		.stack {
+			margin: 2%;
+		}
+
+		.grid {
+			display: grid;
+			grid-gap: 2rem;
+
+			@media (min-width: 1200px) {
+				grid-template-columns: 1fr 1fr;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<Nav />
+	<div class="wrapper">
+		<div class="about-container">
+			<div class="about-desc">
+				<h1>👋 I’m Vera!</h1>
+					<p>I am a recent graduate from NYU Shanghai, with a degree in Interactive Media and Business,
+				where I my education focalized around the intersections of design, business, and technology.
+				My interests lie in the societal impacts on technology and dissecting implicit biases within design
+				in order to create inclusive and accessible products.
+					</p>
+					<p>Currently, I'm a product designer @ Privoce</p>
+					<p>Feel free to reach out by email: vera.zhong@nyu.edu</p>
+					<a href="http://google.com"><button class="button button-about">Here's My Resume</button></a>
+			</div>
+
+			<div class="img-container">
+				<img class="about-img" src="https://vlz-portfolio.s3.amazonaws.com/portfolio+assets/portrait.png">
+			</div>
+		</div>
+
+		<div class="tech-stack">
+			<div class="stack">
+				<p>Prototyping Skills</p>
+				<li>Figma</li>
+				<li>Sketch</li>
+				<li>Adobe XD</li>
+				<li>Invision</li>
+				<li>Axure RP</li>
+			</div>
+
+			<div class="stack">
+				<p>Design Skills</p>
+				<li>Adobe Creative Suite</li>
+				<li>Procreate</li>
+				<li>Rhino</li>
+				<li>Zbrush</li>
+				<li>Good ol' pen and paper</li>
+			</div>
+
+			<div class="stack">
+				<p>Dev Skills</p>
+				<li>HTML/CSS/JS</li>
+				<li>React</li>
+				<li>Firebase</li>
+				<li>MongoDB</li>
+				<li>Node.js</li>
+				<li>Git</li>
+			</div>
+
+			<div class="stack">
+				<p>Project Management</p>
+				<li>Notion</li>
+				<li>JIRA</li>
+				<li>Trello</li>
+				<li>Height</li>
+			</div>
+		</div>
+
+		<div>
+			<p>In my free time, I enjoy</p>
+			<li>hiking ⛰</li>
+			<li>playing clarinet 🎵</li>
+			<li>cooking 🍳</li>
+			<li>specing out my next project car 🚗</li>
+			<p>You can take a look around my projects below to see what I’ve worked on. Enjoy your stay!</p>
+		</div>
+
+		<div class="section" id="projects">
+			<h3 class="sectionTitle">Projects</h3>
+				<div class="grid">
+					{projects.map((project) => <PortfolioPreview project={project} />)}
+				</div>
+		</div>
+	</div>
+
+
+	<Footer />
+</body>
+
+</html>
