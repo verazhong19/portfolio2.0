@@ -3,7 +3,7 @@ layout: ../../layouts/project.astro
 title: Systems Design Project - Cozyliving
 client: Self
 publishDate: 2020-05-02 00:00:00
-img: https://vlz-portfolio.s3.amazonaws.com/portfolio+assets/cozyliving.png
+img: https://vlz-portfolio.s3.amazonaws.com/portfolio+assets/bfe.png
 description: |
   Team Members: Vera Zhong (Front-end, Brand Strategy,), Clara Too
 
