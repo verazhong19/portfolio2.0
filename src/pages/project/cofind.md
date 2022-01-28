@@ -39,6 +39,6 @@ The finalized design was based on a direction of having a very clear onboarding 
 ![prototype](https://vlz-portfolio.s3.amazonaws.com/portfolio+assets/cofind/wireframe.png)
 <br>
 
-[Link to Github Repo](https://bit.ly/3Abnk4q)
+[Link to Github Repo](https://github.com/verazhong19/cofindcapstone)
 <br>
 [Link to Landing Page](https://verazhong19.github.io/cofind/)
