@@ -2,7 +2,7 @@
 layout: ../../layouts/project.astro
 title: CoFind — Senior Capstone Project
 client: Self
-publishDate: 2020-05-01 00:00:00
+publishDate: 2021-05-01 00:00:00
 img: https://vlz-portfolio.s3.amazonaws.com/portfolio+assets/cofind.png
 description: |
   Capstone Advisors: Oliver Steele, Jing Wang <br>

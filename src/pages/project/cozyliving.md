@@ -2,7 +2,7 @@
 layout: ../../layouts/project.astro
 title: Systems Design Project - Cozyliving
 client: Self
-publishDate: 2020-05-02 00:00:00
+publishDate: 2020-09-02 00:00:00
 img: https://vlz-portfolio.s3.amazonaws.com/portfolio+assets/cozyliving.png
 description: |
   Team Members: Vera Zhong (Research, UX, Front-end), Samuel Ko, Yue He, Yili Luo
